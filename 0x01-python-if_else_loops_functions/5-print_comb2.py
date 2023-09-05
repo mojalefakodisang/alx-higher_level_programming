@@ -5,4 +5,4 @@ for i in range(0, 100):
     if int(i) < 99:
         print(f'{i}', end=", ")
     else:
-        print(f'{i}')
+        print(i)
