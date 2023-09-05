@@ -4,6 +4,8 @@ number = random.randint(-10000, 10000)
 str_number = str(number)
 str1 = "Last digit of " + str_number + " is "
 str2 = str_number[-1]
+if number < 0 and not str_number[-1] == "0":
+    str2 = "-" + str_number[-1]
 
 if int(str_number[-1]) > 5:
     print(str1 + str2 + " and is greater than 5")
