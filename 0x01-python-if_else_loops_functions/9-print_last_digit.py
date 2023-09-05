@@ -6,6 +6,6 @@ def print_last_digit(number):
         n = n[-1]
     else:
         n = number
-    print(n)
+    print('{}'.format(n), end="")
 
     return (n)
