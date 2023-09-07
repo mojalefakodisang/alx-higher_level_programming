@@ -5,7 +5,7 @@ if __name__ == "__main__":
 
     args = len(sys.argv) - 1
     if args < 3:
-        print("Usage: {} <a> <operator> <b>".format(sys.argv[0]))
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
     else:
         a = int(sys.argv[1])
