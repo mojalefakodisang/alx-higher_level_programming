@@ -23,3 +23,4 @@ if __name__ == "__main__":
         else:
             print("Unknown operator. Availabe operators: +, -, * and /")
             sys.exit(1)
+        sys.exit(0)
