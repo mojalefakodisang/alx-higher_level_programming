@@ -10,17 +10,11 @@ if __name__ == "__main__":
     else:
         a = int(sys.argv[1])
         b = int(sys.argv[3])
-        op = sys.argv[2]
 
-        if op == "+":
-            print("{0} + {1} = {2}".format(a, b, add(a, b)))
-        elif op == "-":
-            print("{0} - {1} = {2}".format(a, b, sub(a, b)))
-        elif op == "*":
-            print("{0} * {1} = {2}".format(a, b, mul(a, b)))
-        elif op == "/":
-            print("{0} / {1} = {2}".format(a, b, div(a, b)))
-        else:
-            print("Unknown operator. Availabe operators: +, -, * and /\n")
+        op = {"+": add, "-": sub, "*": mul, "/": div}
+        if sys.argv[2] not in list(op.keys()):
+            print("Unknown operator. Availabe operators: +, -, * and /")
             sys.exit(1)
+
+        print("{} {} {} = {}".format(a, sys.argv[2], b, op[sys.argv[2]](a, b)))
         sys.exit(0)
