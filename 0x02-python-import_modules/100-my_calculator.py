@@ -7,14 +7,14 @@ if __name__ == "__main__":
     if args < 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
+    else:
+        a = int(sys.argv[1])
+        b = int(sys.argv[3])
 
-    a = int(sys.argv[1])
-    b = int(sys.argv[3])
+        op = {"+": add, "-": sub, "*": mul, "/": div}
+        if sys.argv[2] not in list(op.keys()):
+            print("Unknown operator. Availabe operators: +, -, * and /")
+            sys.exit(1)
 
-    op = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(op.keys()):
-        print("Unknown operator. Availabe operators: +, -, * and /")
-        sys.exit(1)
-
-        print("{} {} {} = {}".format(a, sys.argv[2], b, op[sys.argv[2]](a, b)))
-        sys.exit(0)
+            print("{} {} {} = {}".format(a, sys.argv[2], b, op[sys.argv[2]](a, b)))
+            sys.exit(0)
