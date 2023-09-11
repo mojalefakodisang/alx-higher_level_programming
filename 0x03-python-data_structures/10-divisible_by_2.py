@@ -5,7 +5,7 @@ def divisible_by_2(my_list=[]):
 
         Return: returns a list of bool that checks integers are divisible by 2
     """
-    list_result=[]
+    list_result = []
     for i in range(len(my_list)):
         if my_list[i] % 2 == 0:
             list_result.append(True)
