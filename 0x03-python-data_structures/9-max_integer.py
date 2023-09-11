@@ -6,7 +6,7 @@ def max_integer(my_list=[]):
         Return: max value of the list
     """
     if not my_list:
-        return None
+        return "None"
     else:
         i = len(my_list) - 1
         while i > 1:
