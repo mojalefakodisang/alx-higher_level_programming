@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    """ Multiple returns 
+    """ Multiple returns
         Args:
             sentence: input string
 
