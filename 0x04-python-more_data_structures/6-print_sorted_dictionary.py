@@ -7,10 +7,5 @@ def print_sorted_dictionary(a_dictionary):
         Returns:
             no return value returned
     """
-    key_list = []
-    for keys, values in a_dictionary.keys():
-        key_list.append(keys)
-
-    for keys in sorted(key_list):
-        values = a_dictionary[keys]
-        print("{:s}: {}".format(keys, values))
+    for keys in sorted(a_dictionary):
+        print("{:s}: {}".format(keys, a_dictionary[keys]))
