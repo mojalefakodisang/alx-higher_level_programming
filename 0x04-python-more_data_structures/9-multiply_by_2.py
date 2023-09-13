@@ -8,5 +8,6 @@ def multiply_by_2(a_dictionary):
             returns a new dictionary
     """
     for keys in a_dictionary:
-        a_dictionary[keys] *= 2
+        isinstance(a_dictionary[keys], int):
+           a_dictionary[keys] *= 2
     return a_dictionary
