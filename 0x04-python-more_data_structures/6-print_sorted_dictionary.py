@@ -13,4 +13,4 @@ def print_sorted_dictionary(a_dictionary):
 
     for keys in sorted(key_list):
         values = a_dictionary[keys]
-        print("{}: {}".format(keys, values))
+        print("{:s}: {}".format(keys, values))
