@@ -9,7 +9,8 @@ def print_sorted_dictionary(a_dictionary):
     """
     key_list = []
     for keys, values in a_dictionary.keys():
-        key_list.append("{}: {}".format(keys, values))
+        key_list.append(keys)
 
-    for contents in sorted(key_list):
-        print(contents)
+    for keys in sorted(key_list):
+        values = a_dictionary[keys]
+        print("{}: {}".format(keys, values))
