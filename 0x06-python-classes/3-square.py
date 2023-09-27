@@ -5,7 +5,7 @@
 class Square:
     """ Clase that takes in a size and returns its area"""
 
-    def __init__(self, size):
+    def __init__(self, size=0):
         """Method that initializes Square class
 
             Args:
