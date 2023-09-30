@@ -18,13 +18,6 @@ class Square:
         self.__size = size
         self.__position = position
 
-    def area(self):
-        """Method that return square of a size
-
-            Return: returns the square of size
-        """
-        return self.__size ** 2
-
     @property
     def size(self):
         """Method that gets size"""
@@ -47,12 +40,19 @@ class Square:
     @position.setter
     def position(self, value):
         """Method that sets position"""
-        if (not isinstance(value, tuple) or
-                len(value) != 2 or
-                not all(isinstance(num, int) for num in value) or
-                not all(num >= 0 for num in value)):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
+        if isinstance(value, tuple) and len(value) == 2:
+            if isinstance(value[0], int) and isinstance(value[1], int):
+                if value[0] >= 0 and value[1] >= 0:
+                    self.__position = value
+                    return
+        raise TypeError("position must be a tuple of 2 positive integers")
+
+    def area(self):
+        """Method that return square of a size
+
+            Return: returns the square of size
+        """
+        return self.__size ** 2
 
     def my_print(self):
         """Method that replaces a square of a number with #"""
@@ -60,12 +60,7 @@ class Square:
             print()
             return
 
-        for i in range(0, self.__position[1]):
-            print("")
-
-        for i in range(self.__size):
-            if self.__position[0] > 0:
-                print(" " * self.__position[0], end="")
-            for j in range(self.__size):
-                print("#", end="")
+        for lin in range(self.__position[1]):
             print()
+        for col in range(self.__size):
+            print("{}{}".format(" " * self.__position[0], "#" * self.__size))
