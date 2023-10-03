@@ -1,16 +1,12 @@
 #!/usr/bin/python3
-""" Module that adds two integers from INT_MIN to INT_MAX"""
+"""
+This is the "0-add_integer" module.
+0-add_integer - adds two integers from INT_MIN to INT_MAX.
+"""
 
 
 def add_integer(a, b=98):
-    """
-    Returns the sum of two integers
-        Args:
-            a: first integer
-            b: second integer, set to 98 at default
-        Return:
-            returns the sum of the two integers a and b
-    """
+    """Returns the sum of two integers."""
     Sum = 0
     if isinstance(a, float):
         a = int(a)
