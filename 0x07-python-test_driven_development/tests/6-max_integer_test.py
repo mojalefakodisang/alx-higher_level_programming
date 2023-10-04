@@ -38,7 +38,17 @@ class TestMaxInteger(unittest.TestCase):
 
     def check_max_middle(self):
         """Checks max if max was in the middle of list"""
-        list = [0, 1, 2, 100, 5]
+        list = [0, 1, 100, 4, 5]
+        self.assertEqual(max_integer(list), 100)
+
+    def check_max_beginning(self):
+        """Checks max if max at start"""
+        list = [100, 0, 1, 2, 3]
+        self.assertEqual(max_integer(list), 100)
+
+    def check_max_end(self):
+        """Checks if max at the end of list"""
+        list = [0, 1, 2, 3 , 100]
         self.assertEqual(max_integer(list), 100)
 
     def check_one_negative_elem(self):
