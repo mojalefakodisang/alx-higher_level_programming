@@ -43,6 +43,12 @@ Checking if div is a larger number
 >>> print(matrix_divided(matrix, 999999))
 [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
 
+Checking if div is float(inf)
+::
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> print(matrix_divided(matrix, float('inf')))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
 Checking division of matrix with a negative div
 ::
 >>> matrix = [[1, 2, 3], [4, 5, 6]]
