@@ -14,7 +14,7 @@ class Base:
             Args:
                 id (int) : public instance, if not none assigned id
         """
-        if id == None:
+        if id is None:
             Base.__nb_objects += 1
             id = Base.__nb_objects
         self.id = id
@@ -22,7 +22,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """Returns the JSON string representation of list_dictionaries"""
-        if list_dictionaries == None:
+        if list_dictionaries is None:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -31,7 +31,7 @@ class Base:
         """Writes the JSON string representation of list_objs to a file"""
         filename = f"{cls.__name__}.json"
         with open(filename, mode="w") as f:
-            if list_objs == None:
+            if list_objs is None:
                 f.write("[]")
             else:
                 list_dict = []
@@ -42,7 +42,7 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """Returns the list of the JSON string representation json_string"""
-        if json_string == None:
+        if json_string is None:
             return "[]"
         else:
             return json.loads(json_string)
@@ -50,7 +50,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Returns an instance with all attributes already set"""
-        if dictionary and dictionary != None:
+        if dictionary and dictionary is not None:
             if cls.__name__ == "Rectangle":
                 new = cls(1, 1)
             else:
