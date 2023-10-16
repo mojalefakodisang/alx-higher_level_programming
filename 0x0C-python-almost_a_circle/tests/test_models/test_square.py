@@ -116,9 +116,9 @@ class TestingSquareXandY(unittest.TestCase):
 
     def testing_x_y_negative(self):
         """Test for the value of x and y with negative values"""
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Square(size=1, x=-10, y=1)
-        with self.assertRaisesRegex(ValueError, "y must be > 0"):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Square(size=1, x=1, y=-10)
 
     def testing_x_y_string(self):

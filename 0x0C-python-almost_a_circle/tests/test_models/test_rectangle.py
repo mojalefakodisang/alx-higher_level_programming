@@ -179,7 +179,7 @@ class TestingRectangleX(unittest.TestCase):
 
     def testing_x_negative(self):
         """Tests fot the value of x if negative"""
-        with self.assertRaisesRegex(ValueError, "x must be > 0"):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(width=1, height=1, x=-1, y=1)
 
     def testing_x_string(self):
@@ -224,7 +224,7 @@ class TestingRectangleY(unittest.TestCase):
 
     def testing_y_negative(self):
         """Test for the value of y if negative"""
-        with self.assertRaisesRegex(ValueError, "y must be > 0"):
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(width=1, height=1, x=1, y=-1)
 
     def testing_y_string(self):
