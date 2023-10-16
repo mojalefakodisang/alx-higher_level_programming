@@ -143,6 +143,6 @@ class Rectangle(Base):
         """Magic method that returns a string"""
         str1 = "[Rectangle] "
         str2 = f"({self.id}) "
-        str3 = f"- {self.x}/{self.y} "
+        str3 = f"{self.x}/{self.y} "
         str4 = f"- {self.width}/{self.height}"
         return str1 + str2 + str3 + str4
