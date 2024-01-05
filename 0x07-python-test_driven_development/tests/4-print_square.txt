@@ -1,0 +1,94 @@
+===============================
+Importing the module and method
+===============================
+
+>>> print_square = __import__('4-print_square').print_square
+>>> module_doc = __import__('4-print_square').__doc__
+>>> method_doc = __import__('4-print_square').print_square.__doc__
+
+## Checking the module documentation
+>>> len(module_doc) > 0
+True
+
+## Checking the method documentation
+>>> len(method_doc) > 0
+True
+
+=================
+Positive outcomes
+=================
+
+>>> print_square(4)
+####
+####
+####
+####
+
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+>>> print_square(0)
+<BLANKLINE>
+
+>>> print_square(1)
+#
+
+=================
+Negative outcomes
+=================
+
+## If size < 0
+>>> print_square(-1)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+>>> print_square(-99)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+## If size is a float
+>>> print_square(1.01)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+## If size is a float infinity
+>>> print_square(float('inf'))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+## If size is a string
+>>> print_square("1")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+## If size is a list
+>>> print_square([1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+## If size is a tuple
+>>> print_square((1, 2, 3))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+## If size is a dictionary
+>>> print_square({"1": 2})
+Traceback (most recent call last):
+...
+TypeError: size must be an integer

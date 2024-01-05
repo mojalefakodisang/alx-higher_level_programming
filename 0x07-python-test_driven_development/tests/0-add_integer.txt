@@ -1,0 +1,62 @@
+## Importing the modules and methods
+
+>>> add_integers = __import__('0-add_integer').add_integer
+
+>>> module_doc = __import__('0-add_integer').__doc__
+>>> method_doc = __import__('0-add_integer').add_integer.__doc__
+>>> len(module_doc)
+41
+>>> len(method_doc)
+143
+
+## Testing positive outcomes
+
+>>> add_integers(2, 2)
+4
+>>> add_integers(1)
+99
+>>> add_integers(1, 1000000)
+1000001
+>>> add_integers(0, 101)
+101
+>>> add_integers(1.01, 0)
+1
+>>> add_integers(-2, 2)
+0
+>>> add_integers(-999999, 1)
+-999998
+
+## Testing negative outcomes
+
+>>> add_integers(None, 21)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integers([], 23)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integers({}, 23)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integers((), 23)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integers(1, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integers(1, [])
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integers(1, {})
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integers(1, ())
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
