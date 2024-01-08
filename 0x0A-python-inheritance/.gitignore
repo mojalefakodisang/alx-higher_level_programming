@@ -1,0 +1,6 @@
+.*.swo.swp
+.*.swp
+__*
+tests/__*
+tests/.*.swo.swp
+tests/.*.swp
