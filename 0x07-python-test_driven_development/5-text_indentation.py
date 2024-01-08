@@ -16,11 +16,14 @@ def text_indentation(text):
 
     mod_text = ""
     i = 0
-    while(i in range(len(text))):
+    printed_indend = 0
+    text = text.strip()
+    for i in range(len(text)):
         if (text[i] in [".", "?", ":"]):
-            mod_text += text[i] + "\n\n"
-            i += 2
-        mod_text += text[i]
-        i += 1
-
-    print(mod_text)
+            printed_indend = 1
+            print(text[i], end="\n\n")
+        elif printed_indend == 1  and text[i] == " ":
+            i += 1
+        else:
+            printed_indend = 0
+            print(text[i], end="")

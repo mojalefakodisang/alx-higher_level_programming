@@ -1,0 +1,70 @@
+## Importing the module and method
+
+>>> text_ind = __import__('5-text_indentation').text_indentation
+
+## Importing documentation of the file
+
+>>> module_doc = __import__('5-text_indentation').__doc__
+>>> len(module_doc) > 0
+True
+
+>>> method_doc = __import__('5-text_indentation').text_indentation.__doc__
+>>> len(module_doc) > 0
+True
+
+### Positive outcomes
+
+## Checking with normal text
+>>> text_ind("Hello there! What's your name?")
+Hello there! What's your name?
+<BLANKLINE>
+
+## Checking if there's spaces between the texts
+>>> text_ind("       Spaces between text. Nothing wrong.      ")
+Spaces between text.
+<BLANKLINE>
+Nothing wrong.
+<BLANKLINE>
+
+## Checking if there are multiple indend symbols passed
+>>> text_ind("I know, but you should... Do you care? If yes, that's fine.")
+I know, but you should.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+Do you care?
+<BLANKLINE>
+If yes, that's fine.
+<BLANKLINE>
+
+### Negative outcomes
+
+## if text is integer/float
+>>> text_ind(1000)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+>>> text_ind(10.00)
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+## if text is a list or tuple
+>>> text_ind([1, 2, 3])
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+>>> text_ind((1, 2, 3))
+Traceback (most recent call last):
+...
+TypeError: text must be a string
+
+## if text is a dictionary
+>>> text_ind({"1": 2})
+Traceback (most recent call last):
+...
+TypeError: text must be a string
