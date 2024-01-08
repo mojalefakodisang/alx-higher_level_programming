@@ -22,7 +22,7 @@ def text_indentation(text):
         if (text[i] in [".", "?", ":"]):
             printed_indend = 1
             print(text[i], end="\n\n")
-        elif printed_indend == 1  and text[i] == " ":
+        elif printed_indend == 1 and text[i] == " ":
             i += 1
         else:
             printed_indend = 0
