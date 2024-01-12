@@ -1,35 +1,4 @@
-<head>
-    <style>
-        h2 {
-            margin-bottom: 0px;
-        }
-        .code {
-            background-color: black;
-            color: white;
-        }
-        video {
-            align: center;
-            object-fit: contain;
-            overflow-clip-margin: content-box;
-            overflow: clip;
-        }
-        .name-container {
-            font-size: 10px;
-            align-items: center;
-        }
-        .copyrights {
-            font-style: italic;
-            text-decoration: underline;
-        }
-        .copyright-container {
-            margin-top: -10px;
-        }
-        footer {
-            margin-top: 50px;
-        }
-    </style>
-</head>
-    <body>
+<body>
         <h1>0x0C. Python - Almost a circle</h1>
         <div class="dog-video">
             <video autoplay>
