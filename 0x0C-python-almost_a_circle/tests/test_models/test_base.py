@@ -59,12 +59,13 @@ class TestBase(unittest.TestCase):
         r1 = Base({"string": 1})
         self.assertEqual(r1.id, {'string': 1})
 
+
 class TestsBaseMethods(unittest.TestCase):
     """Tests for Base class static and class methods"""
-    
+
     def setUp(self):
         self.temp_file = ['Base.json', 'Rectangle.json', 'Square.json']
-        
+
     def tearDown(self):
         for x in self.temp_file:
             if os.path.exists(x):
@@ -77,14 +78,16 @@ class TestsBaseMethods(unittest.TestCase):
         self.assertEqual(type(r1_dict), dict)
         json_dict = Base.to_json_string([r1_dict])
         self.assertEqual(type(json_dict), str)
-        
+
     def testing_save_to_file_method(self):
         """Tests if the JSON string is written into a file"""
         sq1 = Square(2, 3, 4, 5)
         sq2 = Square(4, 2, 1, 4)
         Square.save_to_file([sq1, sq2])
-        
-        s_results = '[{"id": 5, "size": 2, "x": 3, "y": 4}, {"id": 4, "size": 4, "x": 2, "y": 1}]'
+
+        s_results_1 = '[{"id": 5, "size": 2, "x": 3, "y": 4}, '
+        s_results_2 = '{"id": 4, "size": 4, "x": 2, "y": 1}]'
+        s_results = s_results_1 + s_results_2
         with open('Square.json', "r") as f:
             c_output = f.read()
         self.assertEqual(s_results, c_output)
@@ -95,23 +98,24 @@ class TestsBaseMethods(unittest.TestCase):
         """
         sq1 = Square(2, 3, 4, 5)
         sq2 = Square(4, 2, 1, 4)
-        
+
         list_dict = [sq1.to_dictionary(), sq2.to_dictionary()]
         json_input = Square.to_json_string(list_dict)
         json_output = Square.from_json_string(json_input)
-        
+
         self.assertEqual(type(json_input), str)
         self.assertEqual(type(json_output), list)
-        
+
     def testing_create_method(self):
         """Tests if all attributes can be created"""
         r1 = Rectangle(3, 5, 1)
         r1_dict = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dict)
-        
+
         self.assertEqual(r1.width, r2.width)
         self.assertEqual(r1.height, r2.height)
         self.assertEqual(r1.id, r2.id)
-        
+
+
 if __name__ == "__main__":
     unittest.main()
