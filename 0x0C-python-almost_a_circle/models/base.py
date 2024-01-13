@@ -21,55 +21,63 @@ class Base():
         else:
             self.__class__.__nb_objects += 1
             self.id = self.__class__.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
+        """Returns the JSON string representation of
+        list_dictionaries
+        """
         if list_dictionaries is None:
             return "[]"
-        
+
         return json.dumps(list_dictionaries)
-    
+
     @staticmethod
     def from_json_string(json_string):
+        """Returns the list of JSON string representation"""
         if json_string == "" or json_string is None:
             return []
-        
+
         return json.loads(json_string)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
+        """Writes the JSON string representation to a file"""
         if list_objs is None or list_objs == []:
             list_objs = []
         else:
             list_objs = [obj.to_dictionary() for obj in list_objs]
 
         filename = f"{cls.__name__}.json"
-        
+
         with open(filename, "w") as f:
             f.write(cls.to_json_string(list_objs))
-            
+
     @classmethod
     def create(cls, **dictionary):
+        """Returns an instance with all attributes already set"""
         r1 = cls(1, 1)
         r1.update(**dictionary)
         return r1
-    
+
     @classmethod
     def load_from_file(cls):
+        """Returns a list of instances"""
         filename = f"{cls.__name__}.json"
         if not os.path.exists(filename):
             return []
-        
+
         with open(filename) as f:
             content = f.read()
         dict_json_string = cls.from_json_string(content)
         list_obj = [cls.create(**dict) for dict in dict_json_string]
         return list_obj
-    
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """Sterialization in CSV"""
         filename = f"{cls.__name__}.csv"
-        
+
         with open(filename, "w") as f:
             if list_objs is None or list_objs == []:
                 f.write("[]")
@@ -84,6 +92,7 @@ class Base():
 
     @classmethod
     def load_from_file_csv(cls):
+        """"Desterialization in CSV"""
         filename = f"{cls.__name__}.csv"
         try:
             with open(filename, "r", newline="") as f:
