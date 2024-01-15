@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Module containing a TestSquare class"""
 from models.square import Square
 import unittest
 import os
@@ -5,6 +7,7 @@ import sys
 
 
 class TestSquare(unittest.TestCase):
+    """TestSquare class"""
 
     def setUp(self):
         self.temp_file = 'tests/test_models/test_sq_display.txt'

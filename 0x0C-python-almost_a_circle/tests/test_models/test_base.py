@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Model that contains TestBase class"""
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square

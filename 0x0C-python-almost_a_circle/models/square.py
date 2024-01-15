@@ -1,7 +1,10 @@
+#!/usr/bin/python3
+"""Model that contains a Square class"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
+    """Square class that is inherited from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
         """Initializes a Square"""

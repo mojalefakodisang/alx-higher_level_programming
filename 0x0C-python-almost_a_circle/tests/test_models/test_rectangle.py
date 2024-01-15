@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""Module containing TestRectangle class"""
 from models.rectangle import Rectangle
 import unittest
 import sys

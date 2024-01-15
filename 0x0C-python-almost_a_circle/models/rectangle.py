@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Model that contain Rectangle class"""
 from models.base import Base
 
