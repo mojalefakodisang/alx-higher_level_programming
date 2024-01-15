@@ -3,7 +3,6 @@ from models.rectangle import Rectangle
 from models.square import Square
 import unittest
 import os
-import sys
 
 
 class TestBase(unittest.TestCase):
@@ -64,7 +63,8 @@ class TestsBaseMethods(unittest.TestCase):
     """Tests for Base class static and class methods"""
 
     def setUp(self):
-        self.temp_file = ['Base.json', 'Rectangle.json', 'Square.json']
+        self.temp_file = ['Base.json', 'Rectangle.json', 'Square.json'
+                          'Base.csv', 'Rectangle.csv', 'Square.csv']
 
     def tearDown(self):
         for x in self.temp_file:
@@ -115,6 +115,32 @@ class TestsBaseMethods(unittest.TestCase):
         self.assertEqual(r1.width, r2.width)
         self.assertEqual(r1.height, r2.height)
         self.assertEqual(r1.id, r2.id)
+
+    def testing_load_from_file_method(self):
+        """Tests for load from file method"""
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 0, 0, 2)
+        list_rectangle_input = [r1, r2]
+
+        Rectangle.save_to_file(list_rectangle_input)
+        l_output = Rectangle.load_from_file()
+        r1_string = "[Rectangle] (1) 2/8 - 10/7"
+        r2_string = "[Rectangle] (2) 0/0 - 2/4"
+        self.assertEqual(str(l_output[0]), r1_string)
+        self.assertEqual(str(l_output[1]), r2_string)
+
+    def testing_save_to_file_csv_method(self):
+        """Tests for the save to file into csv method"""
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 0, 0, 2)
+        list_rectangle_input = [r1, r2]
+
+        Rectangle.save_to_file_csv(list_rectangle_input)
+        l_output = Rectangle.load_from_file_csv()
+        r1_string = "[Rectangle] (1) 2/8 - 10/7"
+        r2_string = "[Rectangle] (2) 0/0 - 2/4"
+        self.assertEqual(str(l_output[0]), r1_string)
+        self.assertEqual(str(l_output[1]), r2_string)
 
 
 if __name__ == "__main__":
