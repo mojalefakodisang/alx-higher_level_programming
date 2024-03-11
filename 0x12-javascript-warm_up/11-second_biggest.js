@@ -4,7 +4,7 @@ const { argv } = require('node:process');
 let temp;
 let first;
 let sec = 0;
-if (argv.length > 1) {
+if (argv.length > 3) {
   first = parseInt(argv[2]);
   sec = parseInt(argv[3]);
   if (sec > first) {
