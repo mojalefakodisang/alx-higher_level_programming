@@ -13,7 +13,8 @@ if __name__ == '__main__':
     cur = db.cursor()
     cur.execute("""SELECT id, name
                 FROM states
-                WHERE name = %s""", (state_name, ))
+                WHERE BINARY name = '{}'
+                ORDER BY id""".format(state_name))
     all = cur.fetchall()
     for i in all:
         print(i)
