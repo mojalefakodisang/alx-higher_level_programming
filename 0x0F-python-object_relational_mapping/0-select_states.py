@@ -1,18 +1,16 @@
-#!/usr/bin/env python3
-from sqlalchemy import create_engine, MetaData, Table
-import sys
+#!/usr/bin/python3
+"""Select the states table"""
 
-db_uri = f'mysql://{sys.argv[1]}:{sys.argv[2]}@localhost:3306/{sys.argv[3]}'
-engine = create_engine(db_uri)
-connection = engine.connect()
-metadata = MetaData()
-metadata.reflect(bind=engine)
+if __name__ == '__main__':
+    import MySQLdb
+    import sys
 
-states_table = Table('states', metadata, autoload=True)
-results = connection.execute(states_table.select().order_by(states_table.c.id.asc()))
-
-rows = results.fetchall()
-for row in rows:
-  print(row)
-  
-connection.close()
+    USER = sys.argv[1]
+    PWD = sys.argv[2]
+    DB_NAME = sys.argv[3]
+    db = MySQLdb.connect(user=USER, passwd=PWD, db=DB_NAME)
+    cur = db.cursor()
+    cur.execute('SELECT id, name FROM states ORDER BY id')
+    all = cur.fetchall()
+    for i in all:
+        print(i)
