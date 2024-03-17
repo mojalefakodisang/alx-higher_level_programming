@@ -13,8 +13,7 @@ if __name__ == '__main__':
     Session.configure(bind=engine)
     session = Session()
     state = State(name="Louisiana")
-    for i in state:
-        print(i.id)
     session.add(state)
     session.commit()
+    print(state.id)
     session.close()
