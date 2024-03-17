@@ -14,10 +14,7 @@ if __name__ == '__main__':
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    states = session.query(State.name)
+    states = session.query(State).all()
 
-    '''Length of the query'''
-    states_len = session.query(State.name).count()
-
-    for i in range(states_len):
-        print("{}: {}".format(i + 1, states[i][0]))
+    for i in states:
+        print("{}: {}".format(i.id, i.name))
