@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Fetch all states"""
+"""Fetch the first state"""
 import sys
-from model_state import State
+from model_state import State, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -14,9 +14,8 @@ if __name__ == '__main__':
     Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
-    states = session.query(State).all()
+    states = session.query(State).first()
 
-    for i in states:
-        print("{}: {}".format(i.id, i.name))
+    print("{}: {}".format(states.id, states.name))
 
     session.close()
